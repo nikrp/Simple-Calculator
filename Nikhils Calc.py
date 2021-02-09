@@ -6,9 +6,9 @@ def greeting():
 
 def instructions():
     print("This calculator can only do addition, subtraction, multiplication,")
-    print("and division. It can only do one operation at a time, so it can't do")
-    print("num + num / num * num. It can do operations like num + num + num and")
-    print("num * num * num.\n")
+    print("division, and exponentiation. It can only do one operation at a time,")
+    print("so it can't do \"num + num / num * num\". It can do operations like ")
+    print("num + num + num and num * num * num.\n")
 
 greeting()
 
@@ -69,7 +69,7 @@ print(total)
     
 def goodbye():
     print("\nI hoped you like my calculator! It took two days and lots of help to make!")
-    print("I will probably make an improved calculator in the future which can do powers!")
+    print("I will probably make an improved calculator in the future!")
     print("THIS IS NIKHIL'S CALCULATOR!!!")
 
 goodbye()
