@@ -97,6 +97,29 @@ def exponents():
         total = 1
     '''
 
+def isFib(num):
+    n1 = 0
+    n2 = 1
+    isFibNum = False
+
+    if num == 0 or num == 1:
+        isFibNum = True
+
+    # Check until we find a fib number >= num
+    while True:
+        temp = n1 + n2
+        if num == temp:
+            isFibNum = True
+            break
+        if num > temp:
+            break
+        n1 = n2
+        n2 = temp
+    if isFibNum == True:
+        print(f"{num} is a fibonacci number!")
+    else:
+        print(f"{num} is not a fibonacci number!")
+        
 def surprise():
     global total
     isPrime = True
@@ -106,6 +129,9 @@ def surprise():
     else:
         print(f"{num} is an odd number!")
 
+    isFib(num)
+
+    # 3. Check for prime or composite number
     for i in range(2, num-1):
         if num % i == 0:
             isPrime = False
@@ -118,8 +144,6 @@ def surprise():
         total = f"{num} is a composite number!"
     else:
         total = f"{num} is a prime number!"
-    
-    
             
 
 def goodbye():
