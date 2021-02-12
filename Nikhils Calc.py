@@ -28,42 +28,66 @@ def addition():
 
 def subtraction():
     global total
+    newTotal = ""
     print("Enter the nubers of your equation (e.g. 100 20 30): ", end="")
     myList = list(map(int, input().split()))
-    for entry in myList:
-        if total == 0:
-            total = entry
+    for idx in range(0, len(myList)):
+        if idx == 0:
+            total = myList[idx]
         else:
-            total = total - entry
+            total = total - myList[idx]
+        if len(newTotal) != 0:
+            newTotal = newTotal + " - " + str(myList[idx])
+        else:
+            newTotal = str(myList[idx])
+    total = f"{newTotal} = {total}"
 
 def multiplication():
     global total
+    newTotal = ""
     print("Enter the nubers of your equation (e.g. 100 20 30): ", end="")
     myList = list(map(int, input().split()))
-    for entry in myList:
-        if total == 0:
-            total = entry
+    for i in range(0, len(myList)):
+        # If it is the first entry
+        if i == 0:
+            total = myList[i]
         else:
-            total = total * entry
+            total = total * myList[i]
+        if len(newTotal) != 0:
+            newTotal = newTotal + " * " + str(myList[i])
+        else:
+            newTotal = str(myList[i])
+    total = f"{newTotal} = {total}"
 
 def division():
     global total
+    newTotal = ""
     print("Enter the nubers of your equation (e.g. 100 20 30): ", end="")
     myList = list(map(int, input().split()))
-    for entry in myList:
-        if total == 0:
-            total = entry
+    for i in range(0, len(myList)):
+        if i == 0:
+            total = myList[i]
         else:
-            if entry == 0:
-                print("Oops! Can't divide by zero!")
+            if myList[i] == 0:
+                isZeroDiv = True
+                break
             else:
-                total = total / entry
+                total = total / myList[i]
+        if len(newTotal) != 0:
+            newTotal = newTotal + " / " + str(myList[i])
+        else:
+            newTotal = str(myList[i])
+    if isZeroDiv == False:
+        total = f"{newTotal} = {total}"
+    else:
+        total = "Can't divide by 0!!"
+
 
 def exponents():
     global total
     num = int(input("Enter the number: "))
     expo = int(input("Enter the exponent: "))
-    total = f"{num} power {expo} is {num ** expo}"
+    total = f"{num} to the power of {expo} is {num ** expo}"
     '''
     for entry in range(0, expo):
         if total == 0:
@@ -86,17 +110,17 @@ def run():
     
     total = 0
     
-    print("Permitted operations - addition, subtraction, division, multiplication, and exponentiation!\n")
-    userOperation = input("Which operation would you like to use?: ")
-    if userOperation.lower() in "addition add +":
+    print("Pick an operation:\n\t1. Addition\n\t2. Subtraction\n\t3. Division\n\t4. Multiplication\n\t5. Exponentiation\n")
+    userOperation = input("Pick the number that equals the operation, 1, 2, 3, 4, or 5: ")
+    if userOperation.lower() == "1":
         addition()
-    elif userOperation.lower() in "subtraction subtract -":
+    elif userOperation.lower() == "2":
         subtraction()
-    elif userOperation.lower() in "multiplication multiply * x":
+    elif userOperation.lower() == "4":
         multiplication()
-    elif userOperation.lower() in "division divide /":
+    elif userOperation.lower() == "3":
         division()
-    elif userOperation.lower() in "exponentiation exponents powers ^":
+    elif userOperation.lower() == "5":
         exponents()
 
 if __name__ == "__main__":
