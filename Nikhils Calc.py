@@ -82,7 +82,6 @@ def division():
     else:
         total = "Can't divide by 0!!"
 
-
 def exponents():
     global total
     num = int(input("Enter the number: "))
@@ -97,7 +96,32 @@ def exponents():
     if expo == 0:
         total = 1
     '''
+
+def surprise():
+    global total
+    isPrime = True
+    num = int(input("Pick a number: "))
+    if num % 2 == 0:
+        print(f"{num} is an even number!")
+    else:
+        print(f"{num} is an odd number!")
+
+    for i in range(2, num-1):
+        if num % i == 0:
+            isPrime = False
+            break
+    if num < 0:
+        total = f"Not checking {num} for prime or composite test!"
+    elif num == 1 or num == 0:
+        total = f"{num} is neither prime or composite!"
+    elif isPrime == False:
+        total = f"{num} is a composite number!"
+    else:
+        total = f"{num} is a prime number!"
     
+    
+            
+
 def goodbye():
     print("\nI hoped you like my calculator! It took two days and lots of help to make!")
     print("I will probably make an improved calculator in the future!")
@@ -110,18 +134,22 @@ def run():
     
     total = 0
     
-    print("Pick an operation:\n\t1. Addition\n\t2. Subtraction\n\t3. Division\n\t4. Multiplication\n\t5. Exponentiation\n")
-    userOperation = input("Pick the number that equals the operation, 1, 2, 3, 4, or 5: ")
+    print("Pick an operation:\n\t1. Addition\n\t2. Subtraction\n\t3. Division\n\t4. Multiplication\n\t5. Exponentiation\n\t6. Surprise!!")
+    userOperation = input("Pick the number that equals the operation, 1, 2, 3, 4, 5, or 6: ")
     if userOperation.lower() == "1":
         addition()
     elif userOperation.lower() == "2":
         subtraction()
-    elif userOperation.lower() == "4":
-        multiplication()
     elif userOperation.lower() == "3":
         division()
+    elif userOperation.lower() == "4":
+        multiplication()
     elif userOperation.lower() == "5":
         exponents()
+    elif userOperation.lower() == "6":
+        surprise()
+    else:
+        total = "Invalid operation, pick [1-6]!"
 
 if __name__ == "__main__":
     run()
